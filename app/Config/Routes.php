@@ -6,5 +6,5 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('/promotions', 'PromotionsController::index');
-//$route['promotions'] = 'PromotionsController/index';
+$routes->get('/promos', 'PromotionsController::index');
+//$route['promos'] = 'PromotionsController/index';
