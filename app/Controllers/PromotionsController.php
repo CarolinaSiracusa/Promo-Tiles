@@ -6,7 +6,6 @@ class PromotionsController extends BaseController
 {
     public function index()
     {
-        echo "Promotions Controller";
-        //return view('listado_productos');
+        return view('promotions_list');
     }
 }
