@@ -8,4 +8,6 @@ class PromotionsController extends BaseController
     {
         return view('promotions_list');
     }
+
+    public function 
 }
