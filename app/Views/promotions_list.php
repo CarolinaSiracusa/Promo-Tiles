@@ -11,7 +11,7 @@
                 <div class="col-md-4 promo-content">
                     <h2><?php echo $promotion->title ?></h2>
                     <p><?php echo $promotion->description ?></p>
-                    <a href="#" class="btn cta-button">CTA</a>
+                    <a href="#" class="btn cta-button">CTA #<?php echo $promotion->id; ?></a>
                 </div>
             </div>
         <?php endforeach; ?>

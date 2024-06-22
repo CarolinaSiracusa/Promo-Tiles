@@ -8,7 +8,7 @@ class PromotionsController extends BaseController
     {
         $db = \Config\Database::connect();
         $query = $db->query(
-            "SELECT title, image, description 
+            "SELECT id, title, image, description 
             FROM promotions");
         $result = $query->getResult();
         $data = ['header'=>'Promotions', 'list'=>$result];
