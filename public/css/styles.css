@@ -1,0 +1,16 @@
+    .promo-section {
+        margin-bottom: 20px;
+    }
+    .promo-image {
+        background-color: #f0f0f0;
+        height: 200px;
+    }
+    .promo-content {
+        padding: 20px;
+    }
+    .cta-button {
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+    }

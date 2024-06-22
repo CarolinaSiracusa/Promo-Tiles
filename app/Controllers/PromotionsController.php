@@ -6,8 +6,12 @@ class PromotionsController extends BaseController
 {
     public function index()
     {
-        return view('promotions_list');
+        $db = \Config\Database::connect();
+        $query = $db->query(
+            "SELECT title, image, description 
+            FROM promotions");
+        $result = $query->getResult();
+        $data = ['header'=>'Promotions', 'list'=>$result];
+        return view('promotions_list', $data);
     }
-
-    public function 
 }
