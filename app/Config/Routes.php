@@ -7,3 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/promos', 'PromotionsController::index');
+$routes->get('/promos/add', 'PromotionsController::add');
+$routes->post('/promos/submit', 'PromotionsController::submit');
