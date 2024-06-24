@@ -23,14 +23,14 @@ class PromotionsController extends BaseController
 
     public function submit()
     {
-        $reglas = [
+        $rules = [
             'title' => 'required',
-            'image_url' => 'required|valid_url',
+            'image' => 'required|valid_url',
         ];
 
-        /*if(!$this->validate($reglas)){
+        if(!$this->validate($rules)){
             return redirect()->back()->withInput()->with('error', $this->validator->listErrors());
-        }*/
+        }
 
         $post = $this->request->getPost(['title', 'image', 'description']);
 
@@ -41,11 +41,19 @@ class PromotionsController extends BaseController
             'description' => $post['description']
         ]);
 
+        return redirect()->to('/promos');
+    }
+
+    public function delete($id = null) 
+    {
+        if($id == null){
+            return redirect()->route('promos');
+        }
+
         $promotionsModel = new PromotionsModel();
-        $result = $promotionsModel->findAll();
+        $promotionsModel->delete($id);
 
-        $data = ['header'=>'Promotions', 'list'=>$result];
-
-        return view('promotions_list', $data);
+        return redirect()->to('/promos');
+        
     }
 }

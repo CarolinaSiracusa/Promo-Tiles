@@ -12,7 +12,7 @@ class PromotionsModel extends Model {
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['id', 'title', 'image', ' description'];
+    protected $allowedFields = ['id', 'title', 'image', 'description'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
