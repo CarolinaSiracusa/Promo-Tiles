@@ -66,7 +66,6 @@
     <script>
         function toTop(id) {
             const promoTile = document.getElementById(id);
-            // const promoContainer = document.getElementById('promos-container');
             const promoTileParent = promoTile.parentElement;
             promoTileParent.removeChild(promoTile);
             promoTileParent.prepend(promoTile);
