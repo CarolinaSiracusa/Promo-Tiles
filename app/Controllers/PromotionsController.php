@@ -44,6 +44,44 @@ class PromotionsController extends BaseController
         return redirect()->to('/promos');
     }
 
+    public function edit($id = null)
+    {
+        if($id == null){
+            return redirect()->route('promos');
+        }
+
+        $promotionsModel = new PromotionsModel();
+        $result = $promotionsModel->find($id);
+
+        $data = ['promotion'=>$result];
+
+        return view('edit_promotion_form', $data);
+    }
+
+    public function update($id = null)
+    {
+        $rules = [
+            'title' => 'required',
+            'image' => 'required|valid_url',
+        ];
+
+        if(!$this->validate($rules)){
+            return redirect()->back()->withInput()->with('error', $this->validator->listErrors());
+        }
+
+        $post = $this->request->getPost(['title', 'image', 'description']);
+
+        $promotionsModel = new PromotionsModel();
+        $promotionsModel->update($id, [
+            'title' => $post['title'],
+            'image' => $post['image'],
+            'description' => $post['description']
+        ]);
+
+        return redirect()->to('/promos');
+
+    }
+
     public function delete($id = null) 
     {
         if($id == null){
