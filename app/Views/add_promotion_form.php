@@ -1,7 +1,10 @@
 <?php echo $this->extend('base_template'); ?>
+
 <?php $this->section('content') ?>
     <div class="container">
-        <h1>Add a New Promotion</h1>
+        <div class="row">
+            <h1 class="my-4">Add a New Promotion</h1>
+        </div>
         <form action="<?php echo base_url('promos/submit') ?>" method="post" autocomplete="off">
             <div class="form-group">
                 <label class="title" for="title">Title</label>
@@ -16,6 +19,7 @@
                 <input type="text" class="form-control" name="description" id="description" placeholder="Enter description" value="<?php set_value('description') ?>">
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" onclick="history.back()">Go Back</button>
         </form>
     </div> 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

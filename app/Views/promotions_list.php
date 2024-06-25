@@ -2,18 +2,27 @@
 
 <?php $this->section('content') ?>
     <div class="container">
-        <h1 class="my-4"><?php echo $header; ?></h1>
-        <a class="btn btn-primary buttonspace" href="<?php echo base_url('promos/add'); ?>">Add Promotion</a>
+        <div class="row">
+            <h1 class="my-4"><?php echo $header; ?></h1>
+        </div>
+        <div class="row">
+            <a class="btn btn-primary" href="<?php echo base_url('promos/add'); ?>">Add Promotion</a>
+        </div>
         <div id="promos-container">
             <?php foreach ($list as $promotion) : ?>
-            <div class="row promo-section" id="<?php echo $promotion['id']; ?>">
-                <div class="col-md-8">
-                    <img src="<?php echo $promotion['image'] ?>" class="img-fluid" alt="Responsive image">
+            <div class="row promo-section promo-style" id="<?php echo $promotion['id']; ?>">
+                <div class="col-md-6 container image-size">
+                    <img src="<?php echo $promotion['image'] ?>" alt="Responsive image">
                 </div>
-                <div class="col-md-2 promo-content">
+                <div class="col-md-4 promo-content">
                     <h2><?php echo $promotion['title'] ?></h2>
-                    <p><?php echo $promotion['description'] ?></p>
-                    <button class="btn cta-button" onclick="toTop(<?php echo $promotion['id']; ?>)">CTA #<?php echo $promotion['id']; ?></button>
+                    <p class="arial-text"><?php echo $promotion['description'] ?></p>
+                    <div>
+                        <a class="link" data-bs-toggle="modal" data-bs-target="#moreInformationModal">*More Information</a>
+                    </div>
+                    <div>
+                        <button class="btn cta-button" onclick="toTop(<?php echo $promotion['id']; ?>)">CTA #<?php echo $promotion['id']; ?></button>
+                    </div>
                 </div>
                 <div class="col-md-2 promo-content">
                     <a class="btn btn-secondary" href="<?php echo base_url('promos/'. $promotion['id'].'/edit'); ?>"><i class="fas fa-edit"></i></a>
@@ -24,12 +33,34 @@
             <?php endforeach; ?>
         </div>
     </div>
+    <!-- More Information Modal -->
+    <div class="modal fade" id="moreInformationModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Promotion Details</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>More promotion information goes here</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Promotion Modal -->
     <div class="modal fade" id="deleteModal" name="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteModalLabel">Warning</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title" id="deleteModalLabel">Warning</h1>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete this Promotion?</p>

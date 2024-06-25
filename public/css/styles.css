@@ -34,9 +34,27 @@
         border: none;
         cursor: pointer;
     }
-    .buttonspace {
-        margin-bottom: 5px;
+    .btn {
+        margin: 20px 0px;
     }
     .title {
         font-weight: bold;
+    }
+    .arial-text {
+        font-family: Arial;
+        size: 13px;
+    }
+    .promo-style{
+        background-color: rgb(238, 238, 238);
+    }
+    .image-size {
+        height: 300px;
+        width: 710px;
+        text-align: center;
+        align-content: center;
+        border:1px solid rgb(173, 173, 173);
+    }
+    .container img {
+        max-width:100%;
+        max-height:100%;
     }

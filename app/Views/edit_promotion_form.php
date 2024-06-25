@@ -1,7 +1,9 @@
 <?php echo $this->extend('base_template'); ?>
 <?php $this->section('content') ?>
     <div class="container">
-        <h1>Edit Promotion</h1>
+        <div class="row">
+            <h1 class="my-4">Edit Promotion</h1>
+        </div>
         <form action="<?php echo base_url('promos/'. $promotion['id']) ?>" method="post">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="promotion_id" value="<?php echo $promotion['id'] ?>">
@@ -18,6 +20,7 @@
                 <input type="text" class="form-control" name="description" id="description" placeholder="Enter description" value="<?php echo $promotion['description'] ?>">
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" onclick="history.back()">Go Back</button>
         </form>
     </div> 
 <?= $this->endSection() ?>
